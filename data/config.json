@@ -1,0 +1,8 @@
+{
+  "geminiApiKey": "AIzaSyAwCu5R61B1doDjMl_Fzp8iEi0V0gWMifU",
+  "gcpProjectId": "demo-fintech-project",
+  "gcpLocation": "us-central1",
+  "docAiProcessorId": "",
+  "docAiLocation": "us",
+  "modelName": "gemini-3.8-flash"
+}

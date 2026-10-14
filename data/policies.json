@@ -1,0 +1,50 @@
+{
+  "policies": [
+    {
+      "policyNumber": "POL-AUTO-88241",
+      "holder": "Marcus Sterling",
+      "effectiveDate": "2025-04-01",
+      "expirationDate": "2027-04-01",
+      "tier": "Gold Comprehensive",
+      "deductibleComprehensive": 250,
+      "deductibleCollision": 500,
+      "liabilityLimit": "$250,000 / $500,000",
+      "propertyDamageLimit": "$100,000",
+      "clauses": [
+        { "id": "SEC-4.A", "title": "Reasonable & Customary Repair Rates", "category": "Settlement Terms", "rule": "Prevailing territorial labor rate cap enforced; non-OEM parts allowed after 3 model years." },
+        { "id": "SEC-2.B", "title": "Collision Deductible", "category": "Deductible", "rule": "$500 deductible waived only if third party admits fault with verified policy." },
+        { "id": "EXCL-4.B", "title": "Commercial Rideshare Exclusion", "category": "Exclusion", "rule": "Zero coverage during TNC app period 1, 2, or 3 unless endorsement RS-99 attached." }
+      ]
+    },
+    {
+      "policyNumber": "POL-HOME-49102",
+      "holder": "Elena Rostova",
+      "effectiveDate": "2024-11-15",
+      "expirationDate": "2026-11-15",
+      "tier": "Premier Homeowners HO-3",
+      "deductibleComprehensive": 500,
+      "dwellingLimit": "$750,000",
+      "clauses": [
+        { "id": "HO-SEC-1.C", "title": "Sudden & Accidental Water Discharge", "category": "Coverage", "rule": "Covers pipe bursts and appliance discharge; excludes continuous leaks over 14 days." },
+        { "id": "HO-SEC-2.A", "title": "Emergency Mitigation Requirement", "category": "Duty After Loss", "rule": "Insured must take prompt reasonable measures to mitigate water damage." }
+      ]
+    },
+    {
+      "policyNumber": "POL-AUTO-90119",
+      "holder": "Devon Vance",
+      "effectiveDate": "2026-09-13",
+      "expirationDate": "2027-09-13",
+      "tier": "Standard Performance Auto",
+      "deductibleComprehensive": 1000,
+      "clauses": [
+        { "id": "SEC-GEN.9", "title": "Fraud and Material Misrepresentation", "category": "Integrity", "rule": "Policy rendered void ab initio if intentional misrepresentation or staged loss is discovered." }
+      ]
+    }
+  ],
+  "ragIndexMetadata": {
+    "searchEngine": "Vertex AI Search (Document Datastore: /insurance-policies-corpus)",
+    "embeddingModel": "text-embedding-005 (768 dimensions)",
+    "chunkingStrategy": "Hierarchical clause chunking with metadata filtering",
+    "totalIndexedClauses": 1420
+  }
+}

@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OmniClaim AI | Autonomous Multimodal Claims & Fraud Intelligence</title>
+  <meta name="description" content="Enterprise insurance claims adjudication and fraud prevention platform powered by Gemini on Vertex AI, Document AI, Vertex AI Search, and BigQuery.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-dark">
+  <!-- Top App Navigation -->
+  <header class="app-header" id="main-header">
+    <div class="header-left">
+      <div class="brand-cluster">
+        <div class="brand-logo-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" stroke="url(#brandGrad)" />
+            <path d="M9 12l2 2 4-4" stroke="#00e5ff" stroke-linecap="round" stroke-linejoin="round" />
+            <defs>
+              <linearGradient id="brandGrad" x1="3" y1="2" x2="21" y2="20" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#4285F4" />
+                <stop offset="1" stop-color="#a855f7" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">OmniClaim <span class="brand-ai">AI</span></span>
+          <span class="brand-subtitle">Autonomous Multimodal Claim & Fraud Intelligence</span>
+        </div>
+      </div>
+      <div class="gcp-pill-badge" id="gcp-status-pill">
+        <span class="live-pulse-dot"></span>
+        <span>Google Cloud Vertex AI</span>
+        <span class="model-tag">Gemini 3.8 Flash</span>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <button class="nav-btn ghost-btn" id="btn-open-settings" title="Configure Live Google Cloud & Vertex AI API Keys">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3" />
+          <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z" />
+        </svg>
+        <span id="gcp-btn-label">GCP Live Key</span>
+        <span class="live-dot-badge" id="gcp-live-dot"></span>
+      </button>
+
+      <button class="nav-btn ghost-btn" id="btn-open-arch" title="Explore System Architecture">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="3" width="6" height="6" rx="1" />
+          <rect x="16" y="3" width="6" height="6" rx="1" />
+          <rect x="9" y="15" width="6" height="6" rx="1" />
+          <path d="M5 9v3a1 1 0 001 1h6m0 0h6a1 1 0 001-1V9M12 13v2" />
+        </svg>
+        <span>GCP Architecture</span>
+      </button>
+
+      <button class="nav-btn ghost-btn" id="btn-toggle-copilot" title="Open Gemini Copilot">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
+        </svg>
+        <span>Gemini Copilot</span>
+        <span class="copilot-sparkle">✦</span>
+      </button>
+
+      <button class="nav-btn primary-btn" id="btn-new-claim" title="Submit or Simulate New Claim">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="8" x2="12" y2="16" />
+          <line x1="8" y1="12" x2="16" y2="12" />
+        </svg>
+        <span>+ Simulate Ingestion</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Executive Performance Metrics Ribbon -->
+  <section class="metrics-ribbon" id="executive-metrics" aria-label="Executive Performance Metrics">
+    <div class="metric-card">
+      <div class="metric-icon metric-purple">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+          <line x1="16" y1="13" x2="8" y2="13" />
+          <line x1="16" y1="17" x2="8" y2="17" />
+        </svg>
+      </div>
+      <div class="metric-content">
+        <span class="metric-label">Claims Processed (YTD)</span>
+        <span class="metric-value" id="val-processed">12,480</span>
+        <span class="metric-trend trend-up">↑ 34% vs Q2</span>
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-icon metric-emerald">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+          <polyline points="22 4 12 14.01 9 11.01" />
+        </svg>
+      </div>
+      <div class="metric-content">
+        <span class="metric-label">Straight-Through Auto-Approval</span>
+        <span class="metric-value text-emerald" id="val-stp">68.4%</span>
+        <span class="metric-subtext">&lt;15s instant payment</span>
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-icon metric-crimson">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          <line x1="12" y1="8" x2="12" y2="12" />
+          <line x1="12" y1="16" x2="12.01" y2="16" />
+        </svg>
+      </div>
+      <div class="metric-content">
+        <span class="metric-label">Fraud Loss Prevented</span>
+        <span class="metric-value text-crimson" id="val-fraud-saved">$4.22M</span>
+        <span class="metric-subtext">BigQuery Anomaly + Vision</span>
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-icon metric-blue">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" />
+          <polyline points="12 6 12 12 16 14" />
+        </svg>
+      </div>
+      <div class="metric-content">
+        <span class="metric-label">Mean Resolution Time</span>
+        <span class="metric-value text-blue" id="val-cycle">4.2 min</span>
+        <span class="metric-trend trend-down">98.2% faster than 11.4d</span>
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-icon metric-amber">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+        </svg>
+      </div>
+      <div class="metric-content">
+        <span class="metric-label">Gemini Multimodal Accuracy</span>
+        <span class="metric-value text-amber" id="val-accuracy">94.8%</span>
+        <span class="metric-subtext">Document AI + Vision Sync</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Application Workspace -->
+  <main class="workbench-layout" id="main-content">
+    <!-- Left Column: Claims Feed & Filtering -->
+    <aside class="claims-sidebar" id="claims-sidebar" aria-label="Claims Queue">
+      <div class="sidebar-header">
+        <div class="sidebar-title-row">
+          <h1 class="sidebar-title">Claims Triage Queue</h1>
+          <span class="badge-count" id="claims-total-badge">5 Active</span>
+        </div>
+
+        <!-- Search Input -->
+        <div class="search-box">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input type="text" id="claims-search-input" placeholder="Search Claim ID, claimant, policy..." aria-label="Search claims">
+        </div>
+
+        <!-- Filter Chips -->
+        <div class="filter-chip-row" role="tablist">
+          <button class="filter-chip active" data-filter="ALL" id="filter-all">All</button>
+          <button class="filter-chip" data-filter="AUTO_APPROVED" id="filter-auto">Auto-Approved</button>
+          <button class="filter-chip" data-filter="ADJUSTER_REVIEW" id="filter-review">Review</button>
+          <button class="filter-chip" data-filter="SIU_ESCALATED" id="filter-siu">SIU Fraud</button>
+        </div>
+      </div>
+
+      <!-- Scrollable Claims Card List -->
+      <div class="claims-list-container" id="claims-list" role="region" aria-label="List of Insurance Claims">
+        <!-- Rendered dynamically by app.js -->
+        <div class="loading-state">
+          <div class="spinner"></div>
+          <span>Syncing with Cloud Pub/Sub stream...</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right Column: Interactive Adjudication Workbench -->
+    <section class="workbench-main" id="workbench-main" aria-label="Claim Details and Adjudication Workbench">
+      <!-- Empty state when no claim selected -->
+      <div class="workbench-empty-state" id="workbench-empty" style="display: none;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+        <h3>Select a Claim to Inspect Forensic Analysis</h3>
+        <p>Choose an item from the triage queue or simulate an ingestion payload to trigger Gemini multimodal reasoning.</p>
+      </div>
+
+      <!-- Active Claim View -->
+      <div class="workbench-card" id="active-claim-view">
+        <!-- Top Claim Banner -->
+        <div class="claim-banner">
+          <div class="claim-banner-primary">
+            <div class="claim-id-cluster">
+              <span class="claim-id-text" id="claim-id-display">CLM-9042</span>
+              <span class="status-pill" id="claim-status-pill">ADJUSTER REVIEW</span>
+              <span class="loss-category-tag" id="claim-loss-tag">Vehicle Collision</span>
+            </div>
+            <div class="claimant-meta-row">
+              <span class="meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+                <strong id="claim-claimant-name">Marcus Sterling</strong>
+              </span>
+              <span class="meta-separator">•</span>
+              <span class="meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /></svg>
+                <span id="claim-date">2026-09-18 17:42</span>
+              </span>
+              <span class="meta-separator">•</span>
+              <span class="meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></svg>
+                <span id="claim-location">Oakland, CA</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="claim-risk-gauge-cluster">
+            <div class="risk-circle-wrapper" id="risk-score-wrapper">
+              <svg class="risk-svg" viewBox="0 0 36 36">
+                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="circle-fill" id="risk-circle-fill" stroke-dasharray="78, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              </svg>
+              <div class="risk-number-box">
+                <span class="risk-val" id="claim-risk-val">78</span>
+                <span class="risk-scale">/100</span>
+              </div>
+            </div>
+            <div class="risk-label-box">
+              <span class="risk-heading">Fraud Risk Index</span>
+              <span class="risk-sub-tag" id="claim-risk-tag">HIGH RISK</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workbench Tabs Navigation -->
+        <nav class="workbench-tabs" role="tablist">
+          <button class="wtab-btn active" data-tab="forensics" id="tab-btn-forensics">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /><line x1="11" y1="8" x2="11" y2="14" /><line x1="8" y1="11" x2="14" y2="11" /></svg>
+            <span>Multimodal Forensics</span>
+          </button>
+          <button class="wtab-btn" data-tab="documents" id="tab-btn-documents">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><polyline points="14 2 14 8 20 8" /></svg>
+            <span>Document AI Extraction</span>
+          </button>
+          <button class="wtab-btn" data-tab="policy" id="tab-btn-policy">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>
+            <span>Vertex AI Policy RAG</span>
+          </button>
+          <button class="wtab-btn" data-tab="cohort" id="tab-btn-cohort">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" /></svg>
+            <span>BigQuery Benchmarks</span>
+          </button>
+          <button class="wtab-btn" data-tab="decision" id="tab-btn-decision">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12" /></svg>
+            <span>Adjudication & Settlement</span>
+          </button>
+        </nav>
+
+        <!-- Tab Content Panes -->
+        <div class="tab-panes-wrapper">
+
+          <!-- Pane 1: Multimodal Forensics -->
+          <div class="tab-pane active" id="pane-forensics">
+            <div class="split-forensic-view">
+              <!-- Visual Damage Inspector -->
+              <div class="inspector-card">
+                <div class="card-inner-header">
+                  <div class="header-tag-group">
+                    <span class="inspector-title">Vision Evidence & Damage Segmentation</span>
+                    <span class="tag-tech">Gemini Vision on Vertex AI</span>
+                  </div>
+                  <div class="view-mode-toggle">
+                    <button class="toggle-pill active" id="btn-toggle-boxes">Bounding Boxes</button>
+                    <button class="toggle-pill" id="btn-toggle-exif">EXIF Forensic</button>
+                  </div>
+                </div>
+
+                <div class="visual-canvas-container" id="visual-canvas-container">
+                  <!-- Interactive SVG Blueprint / Damage Canvas -->
+                  <div class="damage-visual-art" id="damage-visual-art">
+                    <!-- Injected dynamically via app.js -->
+                  </div>
+
+                  <!-- EXIF Overlay (hidden by default) -->
+                  <div class="exif-overlay" id="exif-overlay" style="display: none;">
+                    <div class="exif-header">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 14 14" /></svg>
+                      <span>Cryptographic & Hardware Metadata Verification</span>
+                    </div>
+                    <div class="exif-grid">
+                      <div class="exif-item"><span class="e-k">Capture Device:</span><span class="e-v">Apple iPhone 15 Pro (iOS 18.1)</span></div>
+                      <div class="exif-item"><span class="e-k">GPS Coordinates:</span><span class="e-v">37.8184° N, 122.2689° W</span></div>
+                      <div class="e-item"><span class="e-k">Geolocation Corroboration:</span><span class="e-v text-emerald">Passed (Matches Police Report within 45m)</span></div>
+                      <div class="e-item"><span class="e-k">Software Tampering / Inpainting:</span><span class="e-v text-emerald">Zero Photoshop / Generative Inpaint Artifacts</span></div>
+                      <div class="e-item"><span class="e-k">Perceptual Hash Archive Check:</span><span class="e-v" id="exif-phash-val">Unique Photo (No salvage auction match)</span></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="canvas-caption">
+                  <span class="caption-icon">⚡</span>
+                  <span id="canvas-caption-text">Visual analysis detects localized rear bumper cover scrape. No deformation on unibody frame rail or suspension linkages.</span>
+                </div>
+              </div>
+
+              <!-- Gemini Findings & Reasoning Tree -->
+              <div class="reasoning-card">
+                <div class="card-inner-header">
+                  <span class="inspector-title">Gemini Multimodal Reasoning Tree</span>
+                  <span class="tag-tech tag-gemini">Reasoning Protocol v2.4</span>
+                </div>
+
+                <div class="findings-list" id="gemini-findings-list">
+                  <!-- Dynamically rendered -->
+                </div>
+
+                <div class="discrepancy-callout" id="discrepancy-callout">
+                  <div class="discrepancy-icon">⚠️</div>
+                  <div class="discrepancy-body">
+                    <strong>Critical Discrepancy Flagged:</strong>
+                    <p id="discrepancy-text">The submitted repair invoice bills $3,800 for rear suspension and $2,250 for frame pulling, yet Gemini visual inspection certifies 0.0mm frame deviation and intact suspension geometry.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 2: Document AI Extraction -->
+          <div class="tab-pane" id="pane-documents">
+            <div class="doc-ai-container">
+              <div class="doc-summary-bar">
+                <div class="doc-info-block">
+                  <span class="doc-label">Parsed Document Type:</span>
+                  <strong id="doc-type-val">Repair Facility Invoice & Estimate</strong>
+                </div>
+                <div class="doc-info-block">
+                  <span class="doc-label">Service Facility:</span>
+                  <strong id="doc-facility-val">Apex Prestige Collision</strong>
+                </div>
+                <div class="doc-info-block">
+                  <span class="doc-label">Facility Trust Rating:</span>
+                  <span class="trust-badge" id="doc-trust-val">Uncertified Provider</span>
+                </div>
+                <div class="doc-info-block">
+                  <span class="doc-label">Document AI OCR Confidence:</span>
+                  <span class="trust-badge badge-high">98.9% Confidence</span>
+                </div>
+              </div>
+
+              <!-- Document Line Item Discrepancy Table -->
+              <div class="table-responsive">
+                <table class="line-items-table" id="line-items-table">
+                  <thead>
+                    <tr>
+                      <th>Invoiced Line Item</th>
+                      <th>Billed Cost</th>
+                      <th>Visual Evidence Verification</th>
+                      <th>Gemini Action</th>
+                      <th>Allowed Cost</th>
+                      <th>Forensic Rationale</th>
+                    </tr>
+                  </thead>
+                  <tbody id="line-items-body">
+                    <!-- Populated dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 3: Vertex AI Policy RAG -->
+          <div class="tab-pane" id="pane-policy">
+            <div class="policy-rag-layout">
+              <div class="rag-search-header">
+                <div class="rag-stats">
+                  <span>Datastore: <strong>insurance-policies-corpus</strong></span>
+                  <span>Indexed Clauses: <strong>1,420</strong></span>
+                  <span>Model: <strong>text-embedding-005</strong></span>
+                </div>
+                <div class="policy-badge-tier" id="policy-tier-badge">Gold Comprehensive Auto</div>
+              </div>
+
+              <div class="clauses-grid" id="policy-clauses-grid">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 4: BigQuery Benchmarks -->
+          <div class="tab-pane" id="pane-cohort">
+            <div class="cohort-dashboard">
+              <div class="cohort-summary-strip">
+                <div class="cohort-stat">
+                  <span class="c-lbl">BigQuery Dataset Cohort:</span>
+                  <strong id="cohort-group-name">2021-2024 Midsize Sedans (Bay Area, CA)</strong>
+                </div>
+                <div class="cohort-stat">
+                  <span class="c-lbl">Cohort Historical Claims:</span>
+                  <strong id="cohort-sample-size">34,820</strong>
+                </div>
+                <div class="cohort-stat">
+                  <span class="c-lbl">Cost Percentile Ranking:</span>
+                  <span class="percentile-pill" id="cohort-percentile">99.4th Percentile (Extreme Outlier)</span>
+                </div>
+              </div>
+
+              <div class="benchmark-charts-grid">
+                <!-- Bar Comparison Chart -->
+                <div class="chart-panel">
+                  <h4>Repair Cost vs Regional Cohort ($ USD)</h4>
+                  <div class="bar-chart-visual">
+                    <div class="bar-row">
+                      <span class="bar-label">Median Cohort Cost</span>
+                      <div class="bar-track">
+                        <div class="bar-fill bar-standard" style="width: 25%;"></div>
+                      </div>
+                      <span class="bar-val" id="bar-median-val">$1,180</span>
+                    </div>
+                    <div class="bar-row">
+                      <span class="bar-label">75th Percentile</span>
+                      <div class="bar-track">
+                        <div class="bar-fill bar-moderate" style="width: 42%;"></div>
+                      </div>
+                      <span class="bar-val">$1,950</span>
+                    </div>
+                    <div class="bar-row">
+                      <span class="bar-label">Claimed Billed Amount</span>
+                      <div class="bar-track">
+                        <div class="bar-fill bar-outlier" id="bar-claimed-fill" style="width: 95%;"></div>
+                      </div>
+                      <span class="bar-val text-crimson" id="bar-claimed-val">$8,450</span>
+                    </div>
+                    <div class="bar-row">
+                      <span class="bar-label">AI Recommended Settlement</span>
+                      <div class="bar-track">
+                        <div class="bar-fill bar-approved" id="bar-approved-fill" style="width: 28%;"></div>
+                      </div>
+                      <span class="bar-val text-emerald" id="bar-approved-val">$1,250</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Provider & Syndicate Analytics -->
+                <div class="chart-panel">
+                  <h4>Provider Risk & Syndicate Network Scan</h4>
+                  <div class="syndicate-metrics">
+                    <div class="syn-metric-box">
+                      <span class="syn-num" id="syn-fraud-rate">14.2%</span>
+                      <span class="syn-desc">Historical Provider Anomaly Rate</span>
+                    </div>
+                    <div class="syn-metric-box">
+                      <span class="syn-num" id="syn-past-claims">1</span>
+                      <span class="syn-desc">Claimant Claims (Last 365 Days)</span>
+                    </div>
+                    <div class="syn-metric-box">
+                      <span class="syn-num text-emerald">0</span>
+                      <span class="syn-desc">Syndicate Ring Connections Detected</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 5: Adjudication & Settlement -->
+          <div class="tab-pane" id="pane-decision">
+            <div class="settlement-layout">
+              <!-- Left side: Financial reconciliation -->
+              <div class="financial-recon-card">
+                <h4 class="card-sec-title">Adjudication Ledger & Net Settlement Calculation</h4>
+                <div class="recon-breakdown">
+                  <div class="recon-line">
+                    <span>Total Claimed Amount (Invoiced)</span>
+                    <strong id="recon-claimed-amt">$8,450.00</strong>
+                  </div>
+                  <div class="recon-line recon-deduct">
+                    <span>Disallowed Inflated / Non-Verified Parts</span>
+                    <strong id="recon-disallowed-amt">-$7,200.00</strong>
+                  </div>
+                  <div class="recon-line">
+                    <span>Adjusted Approved Gross Damages</span>
+                    <strong id="recon-adjusted-amt">$1,250.00</strong>
+                  </div>
+                  <div class="recon-line recon-deduct">
+                    <span>Policy Deductible Applied (SEC-2.B)</span>
+                    <strong id="recon-deductible-amt">-$500.00</strong>
+                  </div>
+                  <div class="recon-divider"></div>
+                  <div class="recon-line recon-net">
+                    <span>Net Authorized Disbursement</span>
+                    <strong class="text-emerald" id="recon-net-payout">$750.00</strong>
+                  </div>
+                </div>
+
+                <div class="adjudication-action-buttons">
+                  <button class="action-btn btn-settle-adjusted" id="btn-settle-adj">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12" /></svg>
+                    <span>Authorize Adjusted Settlement ($750)</span>
+                  </button>
+                  <button class="action-btn btn-settle-full" id="btn-settle-full">
+                    <span>Authorize Full Claimed ($8,450)</span>
+                  </button>
+                  <button class="action-btn btn-siu-escalate" id="btn-escalate-siu">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+                    <span>Escalate to Special Investigation Unit (SIU)</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Right side: Gemini Claimant Communication Generator -->
+              <div class="communication-card">
+                <div class="card-inner-header">
+                  <span class="inspector-title">Gemini Empathetic Explanation Generator</span>
+                  <button class="btn-micro" id="btn-copy-letter">Copy Markdown</button>
+                </div>
+                <p class="comm-subtext">Legally compliant, clear explanation of benefit decisions drafted automatically for the policyholder:</p>
+                <textarea class="letter-textarea" id="claimant-letter-content" rows="12" readonly></textarea>
+                <div class="comm-footer">
+                  <button class="btn-send-letter" id="btn-send-letter">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></svg>
+                    <span>Dispatch to Insured (Email & In-App Portal)</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Interactive Gemini Copilot Drawer -->
+  <aside class="copilot-drawer" id="copilot-drawer" aria-label="Gemini Claims Copilot Assistant">
+    <div class="copilot-header">
+      <div class="copilot-title-group">
+        <div class="copilot-avatar">✦</div>
+        <div>
+          <h3>Gemini Claims Copilot</h3>
+          <span class="copilot-status" id="copilot-status-indicator">Vertex AI • Context Aware</span>
+        </div>
+      </div>
+      <button class="btn-close-copilot" id="btn-close-copilot" aria-label="Close Gemini Copilot">✕</button>
+    </div>
+
+    <div class="copilot-chat-history" id="copilot-chat-history">
+      <div class="chat-msg ai-msg">
+        <div class="msg-avatar">✦</div>
+        <div class="msg-bubble">
+          <p>Hello! I am your <strong>OmniClaim Gemini Copilot</strong> on Vertex AI. I have full multimodal context of the selected claim, including photos, Document AI extractions, BigQuery labor benchmarks, and policy clauses.</p>
+          <div class="quick-prompt-chips">
+            <button class="chip-prompt" data-query="Why was this claim flagged as high risk?">Why was this claim flagged?</button>
+            <button class="chip-prompt" data-query="What policy clauses apply to this claim?">Show applicable policy clauses</button>
+            <button class="chip-prompt" data-query="How does this repair cost compare to BigQuery benchmarks?">Check BigQuery cohort</button>
+            <button class="chip-prompt" data-query="Draft an explanation letter for the claimant">Draft claimant letter</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="copilot-input-area">
+      <form id="copilot-form" class="copilot-form">
+        <input type="text" id="copilot-input" placeholder="Ask Gemini about this claim, policy rules, or repair costs..." autocomplete="off">
+        <button type="submit" id="btn-send-copilot" aria-label="Send message">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="22" y1="2" x2="11" y2="13" />
+            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+          </svg>
+        </button>
+      </form>
+    </div>
+  </aside>
+
+  <!-- New Claim / Simulation Wizard Modal -->
+  <div class="modal-backdrop" id="modal-new-claim" style="display: none;">
+    <div class="modal-container modal-wide">
+      <div class="modal-header">
+        <div class="modal-title-cluster">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="12" y1="18" x2="12" y2="12" /><line x1="9" y1="15" x2="15" y2="15" /></svg>
+          <h2>Simulate Multimodal Ingestion Pipeline</h2>
+        </div>
+        <button class="modal-close-btn" id="btn-close-modal">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <p class="modal-intro">
+          Test Google Cloud's end-to-end multimodal pipeline. Choose an insurance scenario preset to watch <strong>Pub/Sub, Document AI, Vertex AI Search, Gemini 3.8 Flash,</strong> and <strong>BigQuery</strong> analyze and adjudicate the claim in real-time.
+        </p>
+
+        <!-- Scenario Presets -->
+        <div class="presets-row">
+          <div class="preset-card active" data-preset="custom_inflated">
+            <div class="preset-badge badge-warning">Adjuster Review</div>
+            <h4>Auto Collision Inflation</h4>
+            <p>Scratched bumper vs invoiced frame/suspension replacement. Tests visual vs invoice discrepancy.</p>
+          </div>
+          <div class="preset-card" data-preset="clean_glass">
+            <div class="preset-badge badge-success">Auto-Approved</div>
+            <h4>Hail Windshield Fracture</h4>
+            <p>Doppler radar verified storm cell with direct DRP glass repair invoice under limit.</p>
+          </div>
+          <div class="preset-card" data-preset="water_pipe">
+            <div class="preset-badge badge-success">Auto-Approved</div>
+            <h4>Burst Copper Pipe (Home)</h4>
+            <p>Sudden freeze rupture with licensed emergency plumber invoice & moisture readings.</p>
+          </div>
+          <div class="preset-card" data-preset="staged_damage">
+            <div class="preset-badge badge-danger">SIU Escalation</div>
+            <h4>Staged Crash / Recycled Photo</h4>
+            <p>Image matches prior auction salvage vehicle. Bound policy only 4 days ago.</p>
+          </div>
+        </div>
+
+        <form id="ingest-form" class="ingest-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="form-claimant">Policyholder Name</label>
+              <input type="text" id="form-claimant" value="Jordan Ellis" required>
+            </div>
+            <div class="form-group">
+              <label for="form-policy">Policy Number</label>
+              <input type="text" id="form-policy" value="POL-AUTO-88194" required>
+            </div>
+            <div class="form-group">
+              <label for="form-loss-type">Loss Type</label>
+              <input type="text" id="form-loss-type" value="Vehicle Collision (Pillar scrape)" required>
+            </div>
+            <div class="form-group">
+              <label for="form-amount">Total Invoiced Amount ($ USD)</label>
+              <input type="number" id="form-amount" value="5400" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="form-summary">Claimant Statement & Damage Description</label>
+            <textarea id="form-summary" rows="3">Hit parking concrete pillar at low speed. Minor visual scuff, but repair center quoted full suspension realignment and subframe pull.</textarea>
+          </div>
+
+          <!-- Real-Time Pipeline Progress Stepper (Visible during submission) -->
+          <div class="pipeline-stepper" id="pipeline-stepper" style="display: none;">
+            <div class="stepper-title">Executing Google Cloud Event-Driven Pipeline:</div>
+            <div class="stepper-stages">
+              <div class="stage-step" id="step-pubsub">
+                <div class="step-num">1</div>
+                <div class="step-info">
+                  <strong>Pub/Sub Event Ingestion</strong>
+                  <span>Streaming binary multimodal payload</span>
+                </div>
+              </div>
+              <div class="stage-step" id="step-docai">
+                <div class="step-num">2</div>
+                <div class="step-info">
+                  <strong>Document AI OCR & Form Parser</strong>
+                  <span>Extracting line items, labor rates & parts</span>
+                </div>
+              </div>
+              <div class="stage-step" id="step-rag">
+                <div class="step-num">3</div>
+                <div class="step-info">
+                  <strong>Vertex AI Search (Policy RAG)</strong>
+                  <span>Vector matching clauses & exclusions</span>
+                </div>
+              </div>
+              <div class="stage-step" id="step-gemini">
+                <div class="step-num">4</div>
+                <div class="step-info">
+                  <strong>Gemini 3.8 Flash Multimodal Reasoning</strong>
+                  <span>Cross-examining vision evidence vs invoices</span>
+                </div>
+              </div>
+              <div class="stage-step" id="step-bigquery">
+                <div class="step-num">5</div>
+                <div class="step-info">
+                  <strong>BigQuery Cohort Benchmarking</strong>
+                  <span>Comparing against 250k+ historical claims</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn-cancel" id="btn-cancel-modal">Cancel</button>
+            <button type="submit" class="btn-submit-ingest" id="btn-start-ingest">
+              <span>Execute Ingestion & Adjudication Pipeline</span>
+              <span class="btn-arrow">→</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Google Cloud Architecture Blueprint Modal -->
+  <div class="modal-backdrop" id="modal-architecture" style="display: none;">
+    <div class="modal-container modal-wide">
+      <div class="modal-header">
+        <div class="modal-title-cluster">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></svg>
+          <h2>Google Cloud Enterprise Architecture</h2>
+        </div>
+        <button class="modal-close-btn" id="btn-close-arch">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="arch-summary-callout">
+          <h3>Production Scalable FinTech / InsurTech Cloud Blueprint</h3>
+          <p>OmniClaim AI leverages Google Cloud's AI-first suite to transform unstructured claims into real-time, explainable adjudication decisions, stopping fraud before disbursement.</p>
+        </div>
+
+        <div class="arch-pipeline-grid">
+          <!-- Pub/Sub -->
+          <div class="arch-node-card">
+            <div class="node-icon node-blue">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <h4>Cloud Pub/Sub</h4>
+            <span class="node-badge">Ingestion Streaming</span>
+            <p>Decoupled event pipeline ingesting damage imagery, telematics, and PDF estimates concurrently with guaranteed delivery.</p>
+          </div>
+
+          <!-- Document AI -->
+          <div class="arch-node-card">
+            <div class="node-icon node-purple">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <h4>Document AI</h4>
+            <span class="node-badge">Specialized Parsers</span>
+            <p>Extracts structured line items, labor hours, medical billing codes, and crash report entities with high-confidence OCR.</p>
+          </div>
+
+          <!-- Vertex AI Search -->
+          <div class="arch-node-card">
+            <div class="node-icon node-cyan">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <h4>Vertex AI Search (RAG)</h4>
+            <span class="node-badge">Policy & Knowledge RAG</span>
+            <p>Embeds complex policy handbooks, endorsements, and state compliance laws using text-embedding-005 for millisecond semantic retrieval.</p>
+          </div>
+
+          <!-- Gemini on Vertex AI -->
+          <div class="arch-node-card arch-card-featured">
+            <div class="node-icon node-gold">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h4>Gemini 3.8 Flash on Vertex AI</h4>
+            <span class="node-badge">Multimodal Reasoning Core</span>
+            <p>Performs cross-modal discrepancy checks (photos vs invoices), detects visual tampering, evaluates fraud signals, and writes empathetic claimant letters.</p>
+          </div>
+
+          <!-- BigQuery -->
+          <div class="arch-node-card">
+            <div class="node-icon node-crimson">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <h4>BigQuery Analytics</h4>
+            <span class="node-badge">Historical Risk & Graph</span>
+            <p>Runs petabyte-scale cohort comparisons, repair cost percentiles, claim frequency velocity, and syndicate fraud graph queries.</p>
+          </div>
+
+          <!-- Cloud Run & SQL -->
+          <div class="arch-node-card">
+            <div class="node-icon node-emerald">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            </div>
+            <h4>Cloud Run & AlloyDB</h4>
+            <span class="node-badge">Containerized API</span>
+            <p>High-concurrency microservices orchestrating human-in-the-loop adjuster decisions and instant automated banking ACH disbursements.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- Google Cloud & Vertex AI API Key Configuration Modal -->
+  <div class="modal-backdrop" id="modal-settings" style="display: none;">
+    <div class="modal-container" style="width: 640px; max-width: 95vw;">
+      <div class="modal-header">
+        <div class="modal-title-cluster">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" stroke="#4285F4" />
+          </svg>
+          <h2>Live Google Cloud & Vertex AI Integration</h2>
+        </div>
+        <button class="modal-close-btn" id="btn-close-settings">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="settings-status-box" id="settings-status-box">
+          <div class="settings-status-icon" id="settings-status-icon">⚡</div>
+          <div class="settings-status-text">
+            <strong id="settings-status-title">Checking Google Cloud Connection...</strong>
+            <p id="settings-status-desc">Connect a live Google Cloud API key to execute real Gemini 3.8 Flash reasoning and Document AI parsing.</p>
+          </div>
+        </div>
+
+        <form id="gcp-settings-form" class="gcp-settings-form">
+          <div class="form-group">
+            <div class="label-with-link">
+              <label for="cfg-api-key">Gemini on Vertex AI / Google AI Studio API Key</label>
+              <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener" class="link-external">Get Free Key (Google AI Studio) ↗</a>
+            </div>
+            <div class="input-with-reveal">
+              <input type="password" id="cfg-api-key" placeholder="AIzaSy..." autocomplete="off">
+              <button type="button" class="btn-toggle-reveal" id="btn-toggle-key-reveal" title="Show/Hide Key">👁️</button>
+            </div>
+            <span class="field-hint">Enables live Gemini 3.8 Flash multimodal damage reasoning and copilot chat.</span>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="cfg-model">Gemini Reasoning Model</label>
+              <select id="cfg-model" class="custom-select">
+                <option value="gemini-3.8-flash" selected>gemini-3.8-flash (Active on Vertex AI, fast & multimodal)</option>
+                <option value="gemini-2.0-flash">gemini-2.0-flash (Multimodal Fast)</option>
+                <option value="gemini-1.5-pro">gemini-1.5-pro (Deep reasoning)</option>
+                <option value="gemini-1.5-flash">gemini-1.5-flash (Standard)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cfg-location">Vertex AI Location / Region</label>
+              <input type="text" id="cfg-location" value="us-central1" placeholder="us-central1">
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="cfg-project-id">GCP Project ID (Optional)</label>
+              <input type="text" id="cfg-project-id" placeholder="e.g. my-fintech-gcp-project">
+            </div>
+            <div class="form-group">
+              <label for="cfg-docai-id">Document AI Processor ID (Optional)</label>
+              <input type="text" id="cfg-docai-id" placeholder="projects/.../processors/...">
+            </div>
+          </div>
+
+          <div class="sdk-chips-row">
+            <div class="sdk-chip" id="chip-sdk-genai">
+              <span class="sdk-dot"></span>
+              <span>google-genai SDK: <strong id="sdk-genai-status">Installed</strong></span>
+            </div>
+            <div class="sdk-chip" id="chip-sdk-docai">
+              <span class="sdk-dot"></span>
+              <span>Document AI SDK: <strong id="sdk-docai-status">Installed</strong></span>
+            </div>
+          </div>
+
+          <div class="test-feedback-box" id="test-feedback-box" style="display: none;">
+            <div class="feedback-spinner" id="feedback-spinner"></div>
+            <span id="test-feedback-msg">Testing live Vertex AI connection...</span>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn-cancel" id="btn-test-connection">Test Live Connection ⚡</button>
+            <button type="submit" class="btn-submit-ingest" id="btn-save-settings">Save & Connect</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Toast Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

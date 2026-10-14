@@ -1,0 +1,24 @@
+{
+  "bigQueryDataset": "insurance_analytics_prod.claim_cohort_benchmarks_2026",
+  "totalHistoricalClaims": 258410,
+  "regionalLaborRates": {
+    "CA_BAY_AREA": { "body": 88.50, "paint": 88.50, "frame": 105.00, "mechanical": 135.00 },
+    "WA_SEATTLE": { "body": 82.00, "paint": 82.00, "frame": 98.00, "mechanical": 128.00 },
+    "TX_AUSTIN": { "body": 74.00, "paint": 74.00, "frame": 90.00, "mechanical": 115.00 },
+    "FL_MIAMI": { "body": 76.00, "paint": 76.00, "frame": 92.00, "mechanical": 120.00 }
+  },
+  "fraudIndicators": {
+    "suspiciousProviderThreshold": 0.08,
+    "claimVelocity365DaysAlert": 2,
+    "newPolicyDaysThreshold": 14,
+    "disproportionateMarkupPercent": 35.0
+  },
+  "analyticsMetrics": {
+    "totalClaimsProcessedYTD": 12480,
+    "straightThroughProcessingRate": "68.4%",
+    "preventedFraudLossDollars": 4219400,
+    "averageCycleTimeMinutes": 4.2,
+    "historicalBaselineDays": 11.4,
+    "geminiAccuracyRate": "94.8%"
+  }
+}
