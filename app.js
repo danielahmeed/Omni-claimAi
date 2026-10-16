@@ -172,9 +172,28 @@ async function loadData() {
 
     renderClaimsList();
 
-    // Select first claim by default
-    if (state.claims.length > 0) {
+    // Select claim by query param or first by default
+    const urlParams = new URLSearchParams(window.location.search);
+    const targetClaimId = urlParams.get('claim');
+    if (targetClaimId) {
+      selectClaim(targetClaimId);
+    } else if (state.claims.length > 0) {
       selectClaim(state.claims[0].id);
+    }
+
+    const targetTab = urlParams.get('tab');
+    if (targetTab) {
+      const btn = document.querySelector(`.wtab-btn[data-tab="${targetTab}"]`);
+      if (btn) btn.click();
+    }
+
+    const targetModal = urlParams.get('modal');
+    if (targetModal === 'arch' && elements.modalArch) {
+      elements.modalArch.style.display = 'flex';
+    } else if (targetModal === 'new' && elements.modalNewClaim) {
+      elements.modalNewClaim.style.display = 'flex';
+    } else if (targetModal === 'copilot' && elements.copilotDrawer) {
+      elements.copilotDrawer.classList.add('open');
     }
   } catch (err) {
     console.error('Data loading error:', err);

@@ -17,7 +17,7 @@ from datetime import datetime
 # Import Google Cloud Service layer
 from gcp_service import gcp_service, GOOGLE_GENAI_AVAILABLE, DOCAI_AVAILABLE
 
-PORT = 8080
+PORT = int(os.environ.get("PORT", 8080))
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
 CLAIMS_FILE = os.path.join(DATA_DIR, "claims.json")
