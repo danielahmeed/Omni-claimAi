@@ -148,24 +148,29 @@ document.addEventListener('DOMContentLoaded', () => {
   loadData();
 });
 
-// Load Initial Data from REST API
+// Load Initial Data from REST API (with static fallback for Firebase / Serverless)
 async function loadData() {
   try {
-    const [claimsRes, benchmarksRes, configRes] = await Promise.all([
-      fetch('/api/claims'),
-      fetch('/api/benchmarks'),
-      fetch('/api/config')
-    ]);
-
-    if (!claimsRes.ok) throw new Error('Failed to fetch claims data');
+    let claimsRes = await fetch('/api/claims').catch(() => null);
+    if (!claimsRes || !claimsRes.ok) {
+      claimsRes = await fetch('data/claims.json');
+    }
     state.claims = await claimsRes.json();
-    
-    if (benchmarksRes.ok) {
+
+    let benchmarksRes = await fetch('/api/benchmarks').catch(() => null);
+    if (!benchmarksRes || !benchmarksRes.ok) {
+      benchmarksRes = await fetch('data/benchmarks.json');
+    }
+    if (benchmarksRes && benchmarksRes.ok) {
       state.benchmarks = await benchmarksRes.json();
       updateExecutiveMetrics(state.benchmarks);
     }
 
-    if (configRes.ok) {
+    let configRes = await fetch('/api/config').catch(() => null);
+    if (!configRes || !configRes.ok) {
+      configRes = await fetch('data/config.json');
+    }
+    if (configRes && configRes.ok) {
       state.config = await configRes.json();
       updateGcpStatusUI(state.config);
     }
