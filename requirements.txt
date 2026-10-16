@@ -1,5 +1,9 @@
-google-genai>=1.47.0
-google-cloud-documentai>=3.14.0
-requests>=2.32.0
-python-dotenv>=1.0.0
-pydantic>=2.0.0
+# Versions tested with this release (python -m unittest discover -s tests).
+google-genai==2.31.0            # Gemini on Vertex AI / Gemini Developer API
+google-cloud-bigquery==3.46.2   # optional: cost benchmarks in BigQuery (BIGQUERY_BENCHMARK_TABLE)
+google-cloud-documentai==3.16.0 # optional: Invoice Parser for bills (DOCUMENT_AI_PROCESSOR)
+google-cloud-firestore==2.34.1  # optional: durable claim storage (CLAIMS_STORE=firestore)
+google-cloud-storage==3.17.1    # optional: photos and bills in Cloud Storage (CLAIM_FILES_BUCKET)
+pillow==12.3.0                  # photo validation, EXIF metadata, perceptual hash
+pydantic==2.14.1                # structured-output schema for Gemini
+python-dotenv==1.2.4            # optional .env file for local development

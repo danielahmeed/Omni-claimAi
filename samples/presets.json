@@ -1,0 +1,84 @@
+{
+  "presets": [
+    {
+      "id": "inflated-bill",
+      "title": "Inflated repair bill",
+      "expected": "Adjuster review",
+      "expectedKind": "warning",
+      "summary": "Paint scrape on a wheel arch, but the bill adds suspension and frame work.",
+      "photo": "/samples/photos/wheel-arch-scrape.jpg",
+      "document": "/samples/documents/collision-invoice.png",
+      "form": {
+        "claimantName": "Aaron Mitchell",
+        "policyNumber": "POL-AUTO-31877",
+        "product": "auto",
+        "lossType": "Collision: scrape against a parking garage pillar",
+        "incidentDate": "2026-10-14",
+        "incidentLocation": "Oakland, CA",
+        "claimedAmount": 8450,
+        "deductible": "",
+        "description": "Scraped the left rear wheel arch against a concrete pillar while parking at low speed. The body shop says the suspension, exhaust and frame also need work."
+      }
+    },
+    {
+      "id": "storm-windshield",
+      "title": "Storm-damaged windshield",
+      "expected": "Auto-approve",
+      "expectedKind": "success",
+      "summary": "Windshield shattered by a falling branch, with a standard glass invoice.",
+      "photo": "/samples/photos/shattered-windshield.jpg",
+      "document": "/samples/documents/windshield-invoice.png",
+      "form": {
+        "claimantName": "Sofia Martinez",
+        "policyNumber": "POL-AUTO-52044",
+        "product": "auto",
+        "lossType": "Storm damage: windshield shattered by a falling branch",
+        "incidentDate": "2026-10-11",
+        "incidentLocation": "Thornton, CO",
+        "claimedAmount": 780,
+        "deductible": "",
+        "description": "A large branch fell on the van during a wind storm while it was parked outside my house and shattered the windshield."
+      }
+    },
+    {
+      "id": "burst-pipe",
+      "title": "Burst pipe (home)",
+      "expected": "Auto-approve",
+      "expectedKind": "success",
+      "summary": "Ceiling water damage below a burst bathroom pipe.",
+      "photo": "/samples/photos/water-damaged-ceiling.jpg",
+      "document": "/samples/documents/water-damage-invoice.png",
+      "form": {
+        "claimantName": "Hannah Lee",
+        "policyNumber": "POL-HOME-60218",
+        "product": "home",
+        "lossType": "Water damage: burst supply pipe",
+        "incidentDate": "2026-10-12",
+        "incidentLocation": "Seattle, WA",
+        "claimedAmount": 3450,
+        "deductible": "",
+        "description": "A supply pipe in the upstairs bathroom burst. We shut off the water within 40 minutes, but the ceiling below was soaked and the paint and drywall are damaged."
+      }
+    },
+    {
+      "id": "reused-photo",
+      "title": "Reused photo",
+      "expected": "SIU referral",
+      "expectedKind": "danger",
+      "summary": "A 2024 BMW claim that uses a photo from earlier claims.",
+      "photo": "/samples/photos/front-end-damage.jpg",
+      "document": "/samples/documents/front-end-invoice.png",
+      "form": {
+        "claimantName": "Victor Hale",
+        "policyNumber": "POL-AUTO-90377",
+        "product": "auto",
+        "lossType": "Single-vehicle collision with a wall",
+        "incidentDate": "2026-10-15",
+        "incidentLocation": "Miami, FL",
+        "claimedAmount": 42500,
+        "deductible": "",
+        "description": "Lost control at night in an empty warehouse lot and hit a wall. Front end, engine and headlights destroyed. Towed by Midnight Towing to Midnight Auto Crafters."
+      }
+    }
+  ]
+}

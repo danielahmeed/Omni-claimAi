@@ -1,5 +1,13 @@
+# Secrets and local settings - never commit these
 .env
+data/config.json
+data/runtime/
+
+# Python
 .venv/
 __pycache__/
 *.py[cod]
+
+# Tooling
+node_modules/
 .DS_Store

@@ -1,11 +1,19 @@
+# Only the app goes into the container image.
 .git
+.gitignore
 .venv
 __pycache__
 *.pyc
-*.pyo
-*.pyd
-.DS_Store
+.env
+data/config.json
+data/runtime
+node_modules
+tests
+tools
+docs
+assets
+build_presentation.py
 *.pptx
 *.pdf
-assets/images/preview_*.png
-assets/images/extracted_*.jpeg
+*.md
+!samples/ATTRIBUTION.md
