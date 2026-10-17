@@ -1,0 +1,139 @@
+{
+  "_comment": "Used ONLY when Gemini is not configured. If an uploaded document is byte-identical to one of these sample documents AND the photo matches the sample photo, this recorded assessment is replayed and the claim is labeled 'Recorded demo result'. With Gemini configured these entries are never used.",
+  "analyses": [
+    {
+      "name": "Inflated repair bill",
+      "document": "samples/documents/collision-invoice.png",
+      "photo": "samples/photos/wheel-arch-scrape.jpg",
+      "assessment": {
+        "photo_description": "Close-up of the paintwork above the rear wheel of a black car. There is a palm-sized area where the paint has been scraped off down to the primer, with a short scratch below it. The panel is not dented or creased, and the wheel, tyre and arch lip look intact. The suspension, exhaust and frame are not visible.",
+        "damage_regions": [
+          { "label": "Paint scrape on wheel arch", "severity": "MINOR", "box_2d": [300, 525, 690, 765] }
+        ],
+        "document_type": "Repair invoice",
+        "vendor_name": "Apex Prestige Collision & Frame",
+        "document_total": 8450,
+        "line_items": [
+          { "description": "Left rear wheel arch: repair and refinish (body labor 3.0 h)", "billed_amount": 650, "photo_evidence": "SUPPORTED", "recommendation": "ALLOW", "allowed_amount": 650, "reason": "The photo shows scraped paint on the wheel arch that needs to be repaired and refinished." },
+          { "description": "Paint and materials (basecoat / clearcoat)", "billed_amount": 350, "photo_evidence": "NOT_APPLICABLE", "recommendation": "ALLOW", "allowed_amount": 350, "reason": "Paint materials are needed to refinish the scraped area." },
+          { "description": "Clips, mouldings and hardware", "billed_amount": 250, "photo_evidence": "NOT_APPLICABLE", "recommendation": "ALLOW", "allowed_amount": 250, "reason": "A small hardware allowance is reasonable for refinishing the arch." },
+          { "description": "Rear suspension assembly: replace (parts + 9.5 h labor)", "billed_amount": 3800, "photo_evidence": "NOT_SUPPORTED", "recommendation": "DISALLOW", "allowed_amount": 0, "reason": "A low-speed scrape that left the panel undented and the wheel intact gives no reason to replace the suspension." },
+          { "description": "Exhaust system and heat shield: re-align, replace hangers", "billed_amount": 1150, "photo_evidence": "NOT_VISIBLE", "recommendation": "DISALLOW", "allowed_amount": 0, "reason": "Nothing suggests the exhaust was involved in a side scrape against a pillar, and no evidence of underbody damage was provided." },
+          { "description": "Frame machine set-up and structural pull (rear)", "billed_amount": 2250, "photo_evidence": "NOT_SUPPORTED", "recommendation": "DISALLOW", "allowed_amount": 0, "reason": "The panel is not deformed, so there is no sign of structural damage that would need a frame pull." }
+        ],
+        "clause_assessments": [
+          { "clause_id": "SEC-1.A", "verdict": "APPLIES", "explanation": "Contact with a parking garage pillar is a collision loss." },
+          { "clause_id": "SEC-4.A", "verdict": "NOT_MET", "explanation": "The invoice includes repairs to parts that the photo shows were not damaged." },
+          { "clause_id": "SEC-2.B", "verdict": "APPLIES", "explanation": "The collision deductible applies." }
+        ],
+        "coverage_decision": "PARTIALLY_COVERED",
+        "findings": [
+          { "title": "Bill includes repairs the photo does not support", "severity": "CRITICAL", "detail": "$7,200 of suspension, exhaust and frame work is billed, but the photo shows only a paint scrape on an undented wheel arch." },
+          { "title": "High labor rate", "severity": "MEDIUM", "detail": "The invoice charges $145 per hour, well above typical body-shop rates." },
+          { "title": "Visible damage matches the incident", "severity": "INFO", "detail": "A low-speed scrape against a pillar is consistent with the paint damage shown." }
+        ],
+        "risk_score": 72,
+        "risk_rationale": "The visible damage is real and matches the incident, but most of the bill is for structural and mechanical work with no supporting evidence. The pattern suggests an inflated estimate, so an adjuster should review it rather than pay automatically.",
+        "claimant_explanation": "We reviewed the photo and repair invoice you sent. The photo confirms paint damage to the rear wheel arch, and we have approved the bodywork and paint needed to repair it. The suspension, exhaust and frame repairs on the invoice are not supported by the damage shown, so they are not included at this stage. If the repair shop finds hidden damage, they can send us photos of it for review."
+      }
+    },
+    {
+      "name": "Storm-damaged windshield",
+      "document": "samples/documents/windshield-invoice.png",
+      "photo": "samples/photos/shattered-windshield.jpg",
+      "assessment": {
+        "photo_description": "View of a windshield from inside a van. The glass is shattered from a large impact point, with cracks spreading across most of the windshield, consistent with a heavy object such as a branch striking it. No other damage is visible.",
+        "damage_regions": [
+          { "label": "Shattered windshield", "severity": "SEVERE", "box_2d": [41, 98, 592, 781] }
+        ],
+        "document_type": "Auto glass invoice",
+        "vendor_name": "ClearView Auto Glass",
+        "document_total": 780,
+        "line_items": [
+          { "description": "OEM laminated windshield (part)", "billed_amount": 520, "photo_evidence": "SUPPORTED", "recommendation": "ALLOW", "allowed_amount": 520, "reason": "The windshield is shattered and must be replaced." },
+          { "description": "ADAS forward camera recalibration (static + dynamic)", "billed_amount": 180, "photo_evidence": "NOT_APPLICABLE", "recommendation": "ALLOW", "allowed_amount": 180, "reason": "Camera recalibration is required after a windshield replacement (SEC-3.D)." },
+          { "description": "Urethane kit, moulding and installation labor", "billed_amount": 80, "photo_evidence": "NOT_APPLICABLE", "recommendation": "ALLOW", "allowed_amount": 80, "reason": "Standard installation materials and labor." }
+        ],
+        "clause_assessments": [
+          { "clause_id": "SEC-1.B", "verdict": "SATISFIED", "explanation": "A branch falling on the vehicle during a storm is a covered comprehensive loss." },
+          { "clause_id": "SEC-3.D", "verdict": "APPLIES", "explanation": "Glass replacement and camera recalibration are covered with the glass deductible." }
+        ],
+        "coverage_decision": "COVERED",
+        "findings": [
+          { "title": "Damage matches the reported cause", "severity": "INFO", "detail": "The impact pattern is consistent with a heavy object hitting the windshield." },
+          { "title": "Normal glass replacement bill", "severity": "INFO", "detail": "Part, recalibration and installation are itemized at typical prices." }
+        ],
+        "risk_score": 8,
+        "risk_rationale": "The photo, the invoice and the description agree, the costs are typical and storm damage to glass is clearly covered.",
+        "claimant_explanation": "We reviewed your photo and the ClearView Auto Glass invoice. The damage matches the storm event you reported, and the replacement windshield and camera recalibration are covered under your policy's glass coverage. No further information is needed from you."
+      }
+    },
+    {
+      "name": "Burst pipe (home)",
+      "document": "samples/documents/water-damage-invoice.png",
+      "photo": "samples/photos/water-damaged-ceiling.jpg",
+      "assessment": {
+        "photo_description": "Ceiling with a large area of peeling paint and lifted drywall facing, with yellow-brown staining, typical of water soaking through from above. No mould growth or structural sagging is visible.",
+        "damage_regions": [
+          { "label": "Peeling paint and water-damaged drywall", "severity": "MODERATE", "box_2d": [221, 0, 811, 800] },
+          { "label": "Second water-damaged patch", "severity": "MINOR", "box_2d": [140, 741, 472, 1000] }
+        ],
+        "document_type": "Emergency plumbing and restoration invoice",
+        "vendor_name": "Beacon Hill Plumbing & Restoration",
+        "document_total": 3450,
+        "line_items": [
+          { "description": "Emergency call-out and 1/2\" copper supply line repair", "billed_amount": 750, "photo_evidence": "NOT_VISIBLE", "recommendation": "ALLOW", "allowed_amount": 750, "reason": "The burst pipe is hidden above the ceiling; repairing it is required and covered (HO-SEC-1.C)." },
+          { "description": "Water extraction and dehumidification (48 hours)", "billed_amount": 900, "photo_evidence": "NOT_APPLICABLE", "recommendation": "ALLOW", "allowed_amount": 900, "reason": "Drying is a reasonable emergency measure (HO-SEC-2.A)." },
+          { "description": "Ceiling drywall removal and replacement (12 sq ft)", "billed_amount": 1200, "photo_evidence": "SUPPORTED", "recommendation": "ALLOW", "allowed_amount": 1200, "reason": "The photo shows water-damaged drywall that needs replacing." },
+          { "description": "Texture match, stain-block primer and paint", "billed_amount": 600, "photo_evidence": "SUPPORTED", "recommendation": "ALLOW", "allowed_amount": 600, "reason": "Refinishing is needed after the drywall repair." }
+        ],
+        "clause_assessments": [
+          { "clause_id": "HO-SEC-1.C", "verdict": "SATISFIED", "explanation": "A sudden pipe burst is a covered water discharge." },
+          { "clause_id": "HO-SEC-2.A", "verdict": "SATISFIED", "explanation": "The water was stopped within 40 minutes and drying was arranged." },
+          { "clause_id": "HO-DED", "verdict": "APPLIES", "explanation": "The all-perils deductible applies." }
+        ],
+        "coverage_decision": "COVERED",
+        "findings": [
+          { "title": "Damage consistent with a sudden leak", "severity": "INFO", "detail": "Staining and peeling directly below the bathroom match the reported pipe burst." },
+          { "title": "Prompt mitigation", "severity": "INFO", "detail": "The invoice shows the water was stopped quickly and drying equipment was used." }
+        ],
+        "risk_score": 10,
+        "risk_rationale": "The photo, the plumber's invoice and the description are consistent, the costs are typical and a sudden pipe burst is clearly covered.",
+        "claimant_explanation": "We reviewed your photo and the Beacon Hill Plumbing & Restoration invoice. The ceiling damage is consistent with the sudden pipe burst you reported, and the repair and drying costs are covered under your homeowners policy. Thank you for acting quickly to stop the water."
+      }
+    },
+    {
+      "name": "Reused photo",
+      "document": "samples/documents/front-end-invoice.png",
+      "photo": "samples/photos/front-end-damage.jpg",
+      "assessment": {
+        "photo_description": "Front corner of an older silver compact hatchback with a cracked bumper and broken headlight surround. The paint is heavily peeled with rust spots, which suggests long-term weathering rather than a recent crash. The car in the photo is not a 2024 BMW M4: the headlight shape and bumper design belong to a much older economy car.",
+        "damage_regions": [
+          { "label": "Cracked bumper cover", "severity": "SEVERE", "box_2d": [445, 47, 900, 773] },
+          { "label": "Broken headlight surround", "severity": "MODERATE", "box_2d": [176, 508, 516, 715] }
+        ],
+        "document_type": "Repair invoice",
+        "vendor_name": "Midnight Auto Crafters & Custom Tuning",
+        "document_total": 42500,
+        "line_items": [
+          { "description": "Engine block and M TwinPower turbo replacement", "billed_amount": 18500, "photo_evidence": "NOT_VISIBLE", "recommendation": "DISALLOW", "allowed_amount": 0, "reason": "Nothing in the photo indicates engine damage, and the photographed car is not the BMW M4 on the invoice." },
+          { "description": "Carbon-fibre front fascia and laser headlight assemblies", "billed_amount": 12000, "photo_evidence": "NOT_SUPPORTED", "recommendation": "DISALLOW", "allowed_amount": 0, "reason": "The damaged bumper and headlight in the photo are standard parts of an older economy car, not BMW M4 components." },
+          { "description": "Unibody laser measuring and subframe jig straightening", "billed_amount": 12000, "photo_evidence": "NOT_VISIBLE", "recommendation": "DISALLOW", "allowed_amount": 0, "reason": "No structural damage is visible and the photo does not match the insured vehicle." }
+        ],
+        "clause_assessments": [
+          { "clause_id": "SEC-GEN.9", "verdict": "APPLIES", "explanation": "The photo shows a different, older vehicle; this must be investigated as possible misrepresentation." },
+          { "clause_id": "SEC-6.C", "verdict": "APPLIES", "explanation": "The insured vehicle must be inspected before any payment." }
+        ],
+        "coverage_decision": "NEEDS_REVIEW",
+        "findings": [
+          { "title": "Photo shows a different vehicle", "severity": "CRITICAL", "detail": "The claim is for a 2024 BMW M4, but the photo shows an older silver economy hatchback." },
+          { "title": "Damage looks old", "severity": "CRITICAL", "detail": "Peeled paint and rust indicate long-standing damage, not a crash on the reported date." },
+          { "title": "Unverified shop and night-time tow", "severity": "MEDIUM", "detail": "The invoice is from a cash-only tuning shop linked to the towing company, and the loss happened at 2:40 AM with no witnesses." }
+        ],
+        "risk_score": 95,
+        "risk_rationale": "The photo does not show the insured vehicle, the damage is old and the claim pattern is typical of a fabricated claim.",
+        "claimant_explanation": "We have received your claim and the documents you sent. Before we can make a decision, we need to inspect the vehicle, and a claims specialist will contact you to arrange this. Please keep the vehicle available and do not authorise repairs until the inspection is complete."
+      }
+    }
+  ]
+}

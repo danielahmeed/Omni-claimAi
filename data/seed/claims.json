@@ -1,0 +1,276 @@
+[
+  {
+    "id": "CLM-8977",
+    "createdAt": "2025-07-14T18:20:00+00:00",
+    "photo": "samples/photos/front-end-damage.jpg",
+    "illustration": null,
+    "form": {
+      "claimantName": "Luis Carrillo",
+      "policyNumber": "POL-AUTO-55102",
+      "product": "auto",
+      "lossType": "Front-end collision with a roadside barrier",
+      "incidentDate": "2025-07-14",
+      "incidentLocation": "Atlanta, GA - Moreland Ave",
+      "claimedAmount": 3900,
+      "deductible": null,
+      "description": "Lost control on a wet road at low speed and hit a roadside barrier with the front left corner. The bumper cracked and the headlight surround broke. The car was driven home."
+    },
+    "assessment": {
+      "photo_description": "Front left corner of an older silver compact hatchback. The front bumper cover is cracked and pushed in below the headlight, and the headlight surround is broken. Much of the bumper paint is peeling with exposed primer and rust spots, which looks older than the reported incident.",
+      "damage_regions": [
+        { "label": "Cracked bumper cover", "severity": "SEVERE", "box_2d": [445, 47, 900, 773] },
+        { "label": "Broken headlight surround", "severity": "MODERATE", "box_2d": [176, 508, 516, 715] }
+      ],
+      "document_type": "Repair estimate",
+      "vendor_name": "Moreland Auto Body",
+      "document_total": 3900,
+      "line_items": [
+        { "description": "Front bumper cover - replace", "billed_amount": 950, "photo_evidence": "SUPPORTED", "recommendation": "ALLOW", "allowed_amount": 950, "reason": "The photo shows the bumper cover cracked and pushed in." },
+        { "description": "Left headlight surround and indicator - replace", "billed_amount": 420, "photo_evidence": "SUPPORTED", "recommendation": "ALLOW", "allowed_amount": 420, "reason": "The headlight surround is visibly broken." },
+        { "description": "Grille, brackets and clips", "billed_amount": 380, "photo_evidence": "NOT_VISIBLE", "recommendation": "ALLOW", "allowed_amount": 380, "reason": "Brackets behind a cracked bumper are commonly damaged and the amount is modest." },
+        { "description": "Paint and materials", "billed_amount": 600, "photo_evidence": "NOT_APPLICABLE", "recommendation": "ALLOW", "allowed_amount": 600, "reason": "Needed to refinish the new bumper cover." },
+        { "description": "Body labor 11.0 h", "billed_amount": 1550, "photo_evidence": "NOT_APPLICABLE", "recommendation": "ALLOW", "allowed_amount": 1550, "reason": "Labor hours are in line with a bumper and headlight replacement." }
+      ],
+      "clause_assessments": [
+        { "clause_id": "SEC-1.A", "verdict": "SATISFIED", "explanation": "Hitting a roadside barrier is a covered collision loss." },
+        { "clause_id": "SEC-2.B", "verdict": "APPLIES", "explanation": "The collision deductible applies to this loss." }
+      ],
+      "coverage_decision": "COVERED",
+      "findings": [
+        { "title": "Some damage looks older than the incident", "severity": "MEDIUM", "detail": "Peeling paint and rust spots on the bumper suggest wear that predates the reported collision. An inspection is advisable before paying." },
+        { "title": "Impact damage matches the description", "severity": "INFO", "detail": "The cracked bumper and broken headlight surround match a low-speed impact with the front left corner." }
+      ],
+      "risk_score": 28,
+      "risk_rationale": "The impact damage is consistent with the claim, but the weathered paint suggests some damage may be pre-existing. A quick review or inspection is enough before paying.",
+      "claimant_explanation": "We reviewed your photo and repair estimate. The damage to your front bumper and headlight is consistent with the collision you described, and the repair is covered under your collision coverage."
+    },
+    "decision": {
+      "action": "APPROVE_RECOMMENDED",
+      "notes": "In-person inspection confirmed fresh impact damage; older paint wear noted on file.",
+      "at": "2025-07-16T15:05:00+00:00",
+      "by": "R. Okafor (adjuster)"
+    }
+  },
+  {
+    "id": "CLM-8819",
+    "createdAt": "2026-09-12T15:40:00+00:00",
+    "photo": null,
+    "illustration": "water_ceiling",
+    "form": {
+      "claimantName": "Elena Rostova",
+      "policyNumber": "POL-HOME-49102",
+      "product": "home",
+      "lossType": "Water damage: sudden pipe failure",
+      "incidentDate": "2026-09-12",
+      "incidentLocation": "Seattle, WA - NW 65th St",
+      "claimedAmount": 3450,
+      "deductible": null,
+      "description": "A supply pipe fitting failed suddenly behind the kitchen ceiling early in the morning. The water was shut off within 30 minutes and an emergency plumber came out. The ceiling drywall below is stained and sagging."
+    },
+    "assessment": {
+      "photo_description": "Kitchen ceiling with a large water stain and sagging drywall around a supply-pipe fitting, consistent with a sudden leak.",
+      "damage_regions": [],
+      "document_type": "Plumbing and restoration invoice",
+      "vendor_name": "Puget Sound Plumbing & Restoration",
+      "document_total": 3450,
+      "line_items": [
+        { "description": "Emergency call-out and pipe fitting repair", "billed_amount": 750, "photo_evidence": "NOT_VISIBLE", "recommendation": "ALLOW", "allowed_amount": 750, "reason": "The failed fitting is hidden above the ceiling; repairing it is required and covered." },
+        { "description": "Water extraction and drying (48 hours)", "billed_amount": 900, "photo_evidence": "NOT_APPLICABLE", "recommendation": "ALLOW", "allowed_amount": 900, "reason": "Drying is a reasonable emergency measure after a leak." },
+        { "description": "Ceiling drywall replacement (12 sq ft)", "billed_amount": 1200, "photo_evidence": "SUPPORTED", "recommendation": "ALLOW", "allowed_amount": 1200, "reason": "The stained, sagging drywall needs replacing." },
+        { "description": "Texture match, primer and paint", "billed_amount": 600, "photo_evidence": "SUPPORTED", "recommendation": "ALLOW", "allowed_amount": 600, "reason": "Refinishing is needed after the drywall repair." }
+      ],
+      "clause_assessments": [
+        { "clause_id": "HO-SEC-1.C", "verdict": "SATISFIED", "explanation": "A sudden failure of a supply pipe fitting is a covered water discharge." },
+        { "clause_id": "HO-SEC-2.A", "verdict": "SATISFIED", "explanation": "The water was stopped within 30 minutes and drying was arranged." },
+        { "clause_id": "HO-DED", "verdict": "APPLIES", "explanation": "The all-perils deductible applies." }
+      ],
+      "coverage_decision": "COVERED",
+      "findings": [
+        { "title": "Damage consistent with a sudden leak", "severity": "INFO", "detail": "The staining and sagging are directly below the failed fitting and look recent." },
+        { "title": "Water was stopped quickly", "severity": "INFO", "detail": "Shutting off the water within 30 minutes limited the damage, as the policy requires." }
+      ],
+      "risk_score": 8,
+      "risk_rationale": "The damage, the plumber's invoice and the description are consistent, the costs are typical and the policy clearly covers a sudden pipe failure.",
+      "claimant_explanation": "We reviewed your photos and the plumbing invoice. The ceiling damage is consistent with the sudden pipe failure you reported, and the repair and drying costs are covered under your homeowners policy. Thank you for stopping the water so quickly."
+    },
+    "decision": null
+  },
+  {
+    "id": "CLM-8750",
+    "createdAt": "2026-09-14T22:30:00+00:00",
+    "photo": null,
+    "illustration": "subaru_glass",
+    "form": {
+      "claimantName": "Sarah Jenkins",
+      "policyNumber": "POL-AUTO-77312",
+      "product": "auto",
+      "lossType": "Hail damage: cracked windshield",
+      "incidentDate": "2026-09-14",
+      "incidentLocation": "Denver, CO - I-25 near mile 214",
+      "claimedAmount": 780,
+      "deductible": null,
+      "description": "Drove through a sudden hailstorm on I-25. A large hailstone left a star-shaped crack in the windshield that spread across the driver's side."
+    },
+    "assessment": {
+      "photo_description": "Windshield with a star-shaped impact crack spreading across the driver's side, consistent with a large hailstone.",
+      "damage_regions": [],
+      "document_type": "Auto glass invoice",
+      "vendor_name": "Front Range Auto Glass",
+      "document_total": 780,
+      "line_items": [
+        { "description": "OEM acoustic windshield", "billed_amount": 520, "photo_evidence": "SUPPORTED", "recommendation": "ALLOW", "allowed_amount": 520, "reason": "The cracked windshield must be replaced." },
+        { "description": "ADAS forward camera recalibration", "billed_amount": 260, "photo_evidence": "NOT_APPLICABLE", "recommendation": "ALLOW", "allowed_amount": 260, "reason": "Recalibration is required after a windshield replacement (SEC-3.D)." }
+      ],
+      "clause_assessments": [
+        { "clause_id": "SEC-1.B", "verdict": "SATISFIED", "explanation": "Hail damage is a covered comprehensive loss." },
+        { "clause_id": "SEC-3.D", "verdict": "APPLIES", "explanation": "Glass replacement and camera recalibration are covered with the glass deductible." }
+      ],
+      "coverage_decision": "COVERED",
+      "findings": [
+        { "title": "Damage matches a hail impact", "severity": "INFO", "detail": "A single star-shaped crack is typical of a large hailstone strike." },
+        { "title": "Standard glass replacement bill", "severity": "INFO", "detail": "The part and recalibration are itemized at typical prices." }
+      ],
+      "risk_score": 12,
+      "risk_rationale": "A single, well-documented glass claim with typical pricing and a clear covered cause.",
+      "claimant_explanation": "We reviewed your photo and the glass invoice. The damage matches the hailstorm you reported, and the windshield replacement and camera recalibration are covered under your glass coverage. No further information is needed from you."
+    },
+    "decision": null
+  },
+  {
+    "id": "CLM-9231",
+    "createdAt": "2026-09-17T23:55:00+00:00",
+    "photo": null,
+    "illustration": "camry_side",
+    "form": {
+      "claimantName": "Jonathan Briggs",
+      "policyNumber": "POL-AUTO-66190",
+      "product": "auto",
+      "lossType": "Side-swipe collision at an intersection",
+      "incidentDate": "2026-09-17",
+      "incidentLocation": "Austin, TX - 6th St & Congress Ave",
+      "claimedAmount": 6100,
+      "deductible": null,
+      "description": "Another car side-swiped my passenger side at a downtown intersection while I was driving home from the grocery store."
+    },
+    "assessment": {
+      "photo_description": "Passenger-side front door and fender with a long crease and scrapes, and a damaged side mirror, consistent with a side-swipe.",
+      "damage_regions": [],
+      "document_type": "Police report and repair estimate",
+      "vendor_name": "Caliber Collision Austin Central",
+      "document_total": 6100,
+      "line_items": [
+        { "description": "Replace right front door outer skin", "billed_amount": 1850, "photo_evidence": "SUPPORTED", "recommendation": "ALLOW", "allowed_amount": 1850, "reason": "The door has a long crease that needs a new outer skin." },
+        { "description": "Blend paint right fender and rear door", "billed_amount": 1250, "photo_evidence": "SUPPORTED", "recommendation": "ALLOW", "allowed_amount": 1250, "reason": "Adjacent panels need blending for a color match." },
+        { "description": "Replace right mirror assembly and sensor", "billed_amount": 850, "photo_evidence": "SUPPORTED", "recommendation": "ALLOW", "allowed_amount": 850, "reason": "The mirror housing is visibly broken." },
+        { "description": "Wheel alignment and suspension check", "billed_amount": 2150, "photo_evidence": "NOT_VISIBLE", "recommendation": "ALLOW", "allowed_amount": 2150, "reason": "A side-swipe at speed can affect alignment; the shop documented the measurements." }
+      ],
+      "clause_assessments": [
+        { "clause_id": "EXCL-4.B", "verdict": "EXCLUSION_TRIGGERED", "explanation": "Police report #26-08149 records a paying rideshare passenger in the car, and the policy has no Rideshare Endorsement RS-99." },
+        { "clause_id": "SEC-GEN.9", "verdict": "APPLIES", "explanation": "The claimant's account (driving home from the store) conflicts with the police report and should be clarified." },
+        { "clause_id": "SEC-1.A", "verdict": "APPLIES", "explanation": "The damage would otherwise be covered as a collision." }
+      ],
+      "coverage_decision": "NOT_COVERED",
+      "findings": [
+        { "title": "Rideshare trip at the time of the loss", "severity": "CRITICAL", "detail": "Police report #26-08149 states the passenger had booked the ride through a rideshare app." },
+        { "title": "Claimant's account differs from the police report", "severity": "MEDIUM", "detail": "The claim form describes a personal trip home from the grocery store." },
+        { "title": "Damage matches a side-swipe", "severity": "INFO", "detail": "The door crease, scrapes and broken mirror are consistent with the collision described." }
+      ],
+      "risk_score": 64,
+      "risk_rationale": "The damage is genuine, but the vehicle was being used for a paid rideshare trip, which the policy excludes, and the claimant's account conflicts with the police report.",
+      "claimant_explanation": "We reviewed your claim, the repair estimate and the police report. The report records that a rideshare passenger was in the vehicle at the time of the collision. Personal auto policies do not cover vehicles while they are used for rideshare trips unless a rideshare endorsement is in place, so this loss may need to be claimed through the rideshare company's insurance."
+    },
+    "decision": null
+  },
+  {
+    "id": "CLM-9042",
+    "createdAt": "2026-09-18T19:10:00+00:00",
+    "photo": null,
+    "illustration": "car_bumper",
+    "form": {
+      "claimantName": "Marcus Sterling",
+      "policyNumber": "POL-AUTO-88241",
+      "product": "auto",
+      "lossType": "Rear bumper scrape in a parking lot",
+      "incidentDate": "2026-09-18",
+      "incidentLocation": "Oakland, CA - Telegraph Ave & 27th St",
+      "claimedAmount": 8450,
+      "deductible": null,
+      "description": "Reversed into a low concrete post in a parking lot at walking speed. The rear bumper is scraped. The body shop says the suspension and frame also need work."
+    },
+    "assessment": {
+      "photo_description": "Rear bumper cover with a light scrape and scuffed paint on the lower edge. The bumper is not cracked or pushed in, and the tailpipes, wheels and rear panels look undamaged.",
+      "damage_regions": [],
+      "document_type": "Repair invoice",
+      "vendor_name": "Apex Prestige Collision & Frame",
+      "document_total": 8450,
+      "line_items": [
+        { "description": "Rear bumper cover: repair and refinish", "billed_amount": 650, "photo_evidence": "SUPPORTED", "recommendation": "ALLOW", "allowed_amount": 650, "reason": "The photo shows a scrape on the bumper cover that needs refinishing." },
+        { "description": "Paint and materials", "billed_amount": 350, "photo_evidence": "NOT_APPLICABLE", "recommendation": "ALLOW", "allowed_amount": 350, "reason": "Paint materials are needed for the refinish." },
+        { "description": "Clips and hardware", "billed_amount": 250, "photo_evidence": "NOT_APPLICABLE", "recommendation": "ALLOW", "allowed_amount": 250, "reason": "A small hardware allowance is reasonable for removing and refitting the bumper cover." },
+        { "description": "Rear suspension assembly: replace", "billed_amount": 3800, "photo_evidence": "NOT_SUPPORTED", "recommendation": "DISALLOW", "allowed_amount": 0, "reason": "A walking-speed bump that left only a paint scrape cannot plausibly damage the suspension; the wheels and arches are intact." },
+        { "description": "Exhaust and heat shield: re-align", "billed_amount": 1150, "photo_evidence": "NOT_SUPPORTED", "recommendation": "DISALLOW", "allowed_amount": 0, "reason": "The tailpipes are visible in the photo and undamaged." },
+        { "description": "Frame machine set-up and structural pull", "billed_amount": 2250, "photo_evidence": "NOT_SUPPORTED", "recommendation": "DISALLOW", "allowed_amount": 0, "reason": "The bumper is not pushed in, so there is no sign of structural damage." }
+      ],
+      "clause_assessments": [
+        { "clause_id": "SEC-1.A", "verdict": "APPLIES", "explanation": "Backing into a post is a collision loss." },
+        { "clause_id": "SEC-4.A", "verdict": "NOT_MET", "explanation": "The invoice includes repairs to parts that the photo shows were not damaged." },
+        { "clause_id": "SEC-2.B", "verdict": "APPLIES", "explanation": "The collision deductible applies." }
+      ],
+      "coverage_decision": "PARTIALLY_COVERED",
+      "findings": [
+        { "title": "Bill includes repairs the photo does not support", "severity": "CRITICAL", "detail": "$7,200 of suspension, exhaust and frame work is billed, but the photo shows only a paint scrape on an intact bumper." },
+        { "title": "High labor rate", "severity": "MEDIUM", "detail": "The invoice charges $145 per hour, well above typical body-shop rates." }
+      ],
+      "risk_score": 74,
+      "risk_rationale": "The bumper damage is real, but most of the bill is for structural and mechanical work with no supporting evidence, which suggests an inflated estimate.",
+      "claimant_explanation": "We reviewed the photo and repair invoice you sent. The photo confirms a scrape on the rear bumper, and we have approved the bodywork and paint to repair it. The suspension, exhaust and frame repairs on the invoice are not supported by the damage shown, so they are not included. If the repair shop finds hidden damage, they can send photos of it for review."
+    },
+    "decision": null
+  },
+  {
+    "id": "CLM-9104",
+    "createdAt": "2026-09-19T09:45:00+00:00",
+    "photo": "samples/photos/front-end-damage.jpg",
+    "illustration": null,
+    "form": {
+      "claimantName": "Devon 'Ace' Vance",
+      "policyNumber": "POL-AUTO-90119",
+      "product": "auto",
+      "lossType": "Single-vehicle collision with a warehouse wall",
+      "incidentDate": "2026-09-19",
+      "incidentLocation": "Miami, FL - NW 79th St (warehouse lot)",
+      "claimedAmount": 42500,
+      "deductible": null,
+      "description": "Lost control at night in an empty warehouse lot and hit a wall head-on. Front end, engine and headlights destroyed. The car was towed by Midnight Towing to Midnight Auto Crafters."
+    },
+    "assessment": {
+      "photo_description": "Front corner of an older silver compact hatchback with a cracked bumper and broken headlight surround. The paint is heavily peeled with rust spots, which suggests long-term weathering rather than a recent crash. The car in the photo is not a 2024 BMW M4: the headlight shape and bumper design belong to a much older economy car.",
+      "damage_regions": [
+        { "label": "Cracked bumper cover", "severity": "SEVERE", "box_2d": [445, 47, 900, 773] },
+        { "label": "Broken headlight surround", "severity": "MODERATE", "box_2d": [176, 508, 516, 715] }
+      ],
+      "document_type": "Repair invoice",
+      "vendor_name": "Midnight Auto Crafters & Custom Tuning",
+      "document_total": 42500,
+      "line_items": [
+        { "description": "Engine block and M TwinPower turbo replacement", "billed_amount": 18500, "photo_evidence": "NOT_VISIBLE", "recommendation": "DISALLOW", "allowed_amount": 0, "reason": "Nothing in the photo indicates engine damage, and the photographed car is not the BMW M4 on the invoice." },
+        { "description": "Carbon-fibre front fascia and laser headlight assemblies", "billed_amount": 12000, "photo_evidence": "NOT_SUPPORTED", "recommendation": "DISALLOW", "allowed_amount": 0, "reason": "The damaged bumper and headlight in the photo are standard parts of an older economy car, not BMW M4 components." },
+        { "description": "Unibody laser measuring and subframe jig straightening", "billed_amount": 12000, "photo_evidence": "NOT_VISIBLE", "recommendation": "DISALLOW", "allowed_amount": 0, "reason": "No structural damage is visible and the photo does not match the insured vehicle." }
+      ],
+      "clause_assessments": [
+        { "clause_id": "SEC-GEN.9", "verdict": "APPLIES", "explanation": "The photo shows a different, older vehicle; this must be investigated as possible misrepresentation." },
+        { "clause_id": "SEC-6.C", "verdict": "APPLIES", "explanation": "The insured vehicle must be inspected before any payment." }
+      ],
+      "coverage_decision": "NEEDS_REVIEW",
+      "findings": [
+        { "title": "Photo shows a different vehicle", "severity": "CRITICAL", "detail": "The claim is for a 2024 BMW M4, but the photo shows an older silver economy hatchback." },
+        { "title": "Damage looks old", "severity": "CRITICAL", "detail": "Peeled paint and rust indicate long-standing damage, not a crash on the reported date." },
+        { "title": "Night-time loss with no witnesses", "severity": "MEDIUM", "detail": "Single-vehicle crash in an empty lot at night, towed to a shop linked to the towing company." }
+      ],
+      "risk_score": 96,
+      "risk_rationale": "The photo does not show the insured vehicle, the damage is old, and the claim pattern (new policy, night-time single-vehicle loss, linked tow and repair shop) is typical of a staged or fabricated claim.",
+      "claimant_explanation": "We have received your claim and the documents you sent. Before we can make a decision, we need to inspect the vehicle, and a claims specialist will contact you to arrange this. Please keep the vehicle available and do not authorise repairs until the inspection is complete."
+    },
+    "decision": null
+  }
+]

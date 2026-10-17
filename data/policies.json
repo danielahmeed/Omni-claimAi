@@ -1,50 +1,97 @@
 {
-  "policies": [
-    {
-      "policyNumber": "POL-AUTO-88241",
-      "holder": "Marcus Sterling",
-      "effectiveDate": "2025-04-01",
-      "expirationDate": "2027-04-01",
-      "tier": "Gold Comprehensive",
-      "deductibleComprehensive": 250,
-      "deductibleCollision": 500,
-      "liabilityLimit": "$250,000 / $500,000",
-      "propertyDamageLimit": "$100,000",
+  "_comment": "Sample policy wording and a small policy register for the demo. Fictional insurer 'Apex Mutual'. Gemini receives the clauses for the claim's product and decides which apply; the system uses the register to check policy dates and deductibles.",
+  "forms": {
+    "auto": {
+      "name": "Apex Mutual Personal Auto Policy (sample wording)",
       "clauses": [
-        { "id": "SEC-4.A", "title": "Reasonable & Customary Repair Rates", "category": "Settlement Terms", "rule": "Prevailing territorial labor rate cap enforced; non-OEM parts allowed after 3 model years." },
-        { "id": "SEC-2.B", "title": "Collision Deductible", "category": "Deductible", "rule": "$500 deductible waived only if third party admits fault with verified policy." },
-        { "id": "EXCL-4.B", "title": "Commercial Rideshare Exclusion", "category": "Exclusion", "rule": "Zero coverage during TNC app period 1, 2, or 3 unless endorsement RS-99 attached." }
+        {
+          "id": "SEC-1.A",
+          "title": "Collision Coverage",
+          "text": "We will pay for direct and accidental loss to your covered auto caused by collision with another object or by upset of the vehicle, less the collision deductible shown in the declarations."
+        },
+        {
+          "id": "SEC-1.B",
+          "title": "Comprehensive Coverage",
+          "text": "We will pay for direct and accidental loss to your covered auto not caused by collision, including fire, theft, hail, windstorm, falling objects and glass breakage, less the comprehensive deductible shown in the declarations."
+        },
+        {
+          "id": "SEC-2.B",
+          "title": "Deductibles",
+          "text": "Each loss is subject to the deductible shown in the declarations for the coverage that applies. One deductible applies per occurrence."
+        },
+        {
+          "id": "SEC-3.D",
+          "title": "Glass Breakage",
+          "text": "Windshield and window glass breakage is paid under Comprehensive Coverage subject to the reduced glass deductible shown in the declarations. Recalibration of driver-assistance cameras required by the glass replacement is included."
+        },
+        {
+          "id": "SEC-4.A",
+          "title": "Reasonable Repair Costs",
+          "text": "We will pay no more than the reasonable cost to repair or replace the damaged property with property of like kind and quality, at labor rates prevailing in the area where repairs are made. We do not pay for repair or replacement of parts that were not damaged in the loss."
+        },
+        {
+          "id": "EXCL-4.B",
+          "title": "Commercial Use and Rideshare Exclusion",
+          "text": "We do not provide coverage for any vehicle while it is being used to carry persons or property for a fee, including while the driver is logged into a transportation network company (rideshare) application, unless the Rideshare Endorsement RS-99 is shown in the declarations."
+        },
+        {
+          "id": "SEC-6.C",
+          "title": "Duties After a Loss",
+          "text": "You must promptly report the loss, provide photographs and repair estimates, allow us to inspect the damaged vehicle before repairs begin, and cooperate with our investigation."
+        },
+        {
+          "id": "SEC-GEN.9",
+          "title": "Fraud and Misrepresentation",
+          "text": "We do not provide coverage for any person who has intentionally concealed or misrepresented a material fact, engaged in fraudulent conduct, or made false statements in connection with a claim under this policy."
+        }
       ]
     },
-    {
-      "policyNumber": "POL-HOME-49102",
-      "holder": "Elena Rostova",
-      "effectiveDate": "2024-11-15",
-      "expirationDate": "2026-11-15",
-      "tier": "Premier Homeowners HO-3",
-      "deductibleComprehensive": 500,
-      "dwellingLimit": "$750,000",
+    "home": {
+      "name": "Apex Mutual Homeowners HO-3 Policy (sample wording)",
       "clauses": [
-        { "id": "HO-SEC-1.C", "title": "Sudden & Accidental Water Discharge", "category": "Coverage", "rule": "Covers pipe bursts and appliance discharge; excludes continuous leaks over 14 days." },
-        { "id": "HO-SEC-2.A", "title": "Emergency Mitigation Requirement", "category": "Duty After Loss", "rule": "Insured must take prompt reasonable measures to mitigate water damage." }
-      ]
-    },
-    {
-      "policyNumber": "POL-AUTO-90119",
-      "holder": "Devon Vance",
-      "effectiveDate": "2026-09-13",
-      "expirationDate": "2027-09-13",
-      "tier": "Standard Performance Auto",
-      "deductibleComprehensive": 1000,
-      "clauses": [
-        { "id": "SEC-GEN.9", "title": "Fraud and Material Misrepresentation", "category": "Integrity", "rule": "Policy rendered void ab initio if intentional misrepresentation or staged loss is discovered." }
+        {
+          "id": "HO-SEC-1.C",
+          "title": "Sudden and Accidental Discharge of Water",
+          "text": "We cover direct physical loss caused by the sudden and accidental discharge of water or steam from within a plumbing, heating or air-conditioning system or household appliance, including the cost of tearing out and replacing the part of the building needed to repair the system."
+        },
+        {
+          "id": "HO-EXCL-1.D",
+          "title": "Continuous Seepage Exclusion",
+          "text": "We do not cover loss caused by continuous or repeated seepage or leakage of water over a period of 14 days or more, or by wear and tear, deterioration, mold or rot resulting from it."
+        },
+        {
+          "id": "HO-SEC-2.A",
+          "title": "Duty to Mitigate",
+          "text": "After a loss you must take reasonable steps to protect the property from further damage, such as stopping the flow of water and arranging drying. Reasonable costs of these emergency measures are covered."
+        },
+        {
+          "id": "HO-SEC-4.A",
+          "title": "Reasonable Repair Costs",
+          "text": "We will pay the reasonable cost to repair or replace the damaged part of the dwelling with materials of like kind and quality, at prevailing local rates."
+        },
+        {
+          "id": "HO-DED",
+          "title": "Deductible",
+          "text": "Each covered loss is subject to the all-perils deductible shown in the declarations."
+        },
+        {
+          "id": "SEC-GEN.9",
+          "title": "Fraud and Misrepresentation",
+          "text": "We do not provide coverage for any insured who has intentionally concealed or misrepresented a material fact, engaged in fraudulent conduct, or made false statements in connection with a claim under this policy."
+        }
       ]
     }
-  ],
-  "ragIndexMetadata": {
-    "searchEngine": "Vertex AI Search (Document Datastore: /insurance-policies-corpus)",
-    "embeddingModel": "text-embedding-005 (768 dimensions)",
-    "chunkingStrategy": "Hierarchical clause chunking with metadata filtering",
-    "totalIndexedClauses": 1420
-  }
+  },
+  "policies": [
+    { "policyNumber": "POL-AUTO-88241", "holder": "Marcus Sterling", "product": "auto", "effectiveDate": "2025-04-01", "expirationDate": "2027-04-01", "deductibles": { "collision": 500, "comprehensive": 250, "glass": 100 }, "endorsements": [] },
+    { "policyNumber": "POL-HOME-49102", "holder": "Elena Rostova", "product": "home", "effectiveDate": "2024-11-15", "expirationDate": "2026-11-15", "deductibles": { "allPerils": 500 }, "endorsements": [] },
+    { "policyNumber": "POL-AUTO-90119", "holder": "Devon Vance", "product": "auto", "effectiveDate": "2026-09-13", "expirationDate": "2027-09-13", "deductibles": { "collision": 1000, "comprehensive": 1000, "glass": 250 }, "endorsements": [] },
+    { "policyNumber": "POL-AUTO-77312", "holder": "Sarah Jenkins", "product": "auto", "effectiveDate": "2026-03-01", "expirationDate": "2027-03-01", "deductibles": { "collision": 500, "comprehensive": 250, "glass": 100 }, "endorsements": [] },
+    { "policyNumber": "POL-AUTO-66190", "holder": "Jonathan Briggs", "product": "auto", "effectiveDate": "2026-01-10", "expirationDate": "2027-01-10", "deductibles": { "collision": 500, "comprehensive": 500, "glass": 100 }, "endorsements": [] },
+    { "policyNumber": "POL-AUTO-55102", "holder": "Luis Carrillo", "product": "auto", "effectiveDate": "2025-03-01", "expirationDate": "2026-03-01", "deductibles": { "collision": 500, "comprehensive": 250, "glass": 100 }, "endorsements": [] },
+    { "policyNumber": "POL-AUTO-31877", "holder": "Aaron Mitchell", "product": "auto", "effectiveDate": "2025-11-01", "expirationDate": "2026-11-01", "deductibles": { "collision": 500, "comprehensive": 250, "glass": 100 }, "endorsements": [] },
+    { "policyNumber": "POL-AUTO-52044", "holder": "Sofia Martinez", "product": "auto", "effectiveDate": "2026-02-15", "expirationDate": "2027-02-15", "deductibles": { "collision": 500, "comprehensive": 250, "glass": 100 }, "endorsements": [] },
+    { "policyNumber": "POL-HOME-60218", "holder": "Hannah Lee", "product": "home", "effectiveDate": "2026-06-01", "expirationDate": "2027-06-01", "deductibles": { "allPerils": 500 }, "endorsements": [] },
+    { "policyNumber": "POL-AUTO-90377", "holder": "Victor Hale", "product": "auto", "effectiveDate": "2026-10-10", "expirationDate": "2027-10-10", "deductibles": { "collision": 1000, "comprehensive": 1000, "glass": 250 }, "endorsements": [] }
+  ]
 }
